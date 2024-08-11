@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the Sign-Up Form */
+.signup-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background: #111;
+    border-radius: 30px; /* Curved borders */
+    border: 2px solid; /* Gradient border */
+    border-image: linear-gradient(to right, #f0f, #0ff) 1;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Soft glowing shadow */
+    animation: fadeInUp 2s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Heading Style */
+.signup-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Input Field Groups */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Label Style */
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+/* Input Field Style */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px; /* Curved borders */
+    border: 2px solid;
+    border-image: linear-gradient(to right, #f0f, #0ff) 1;
+    background: #000;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Styled Button */
+.styled-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #f0f, #0ff) 1;
+    border-radius: 30px; /* Curved borders */
+    transition: background 0.3s, border-image 0.3s;
+}
+
+/* Button Hover Effect */
+.styled-button:hover {
+    background: linear-gradient(to right, #f0f, #0ff); /* Gradient background on hover */
+    color: #000;
+}
+
+/* Fade-In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

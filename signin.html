@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - EduEdge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EduEdge Sign In</h1>
+        </header>
+        
+        <section class="sign-in-form">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit" class="styled-button">Sign In</button>
+            </form>
+            <p id="message"></p>
+        </section>
+
+        <footer>
+            <p>© 2024 EduEdge. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Example credentials (you can customize this)
+            const validUsername = 'user123';
+            const validPassword = 'pass123';
+
+            // Check credentials
+            if (username === validUsername && password === validPassword) {
+                // Set cookies for username and password
+                const days = 30; // Number of days until expiration
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiration date
+                const expires = `expires=${date.toUTCString()}`;
+                document.cookie = `username=${username}; path=/; domain=yourdomain.com; ${expires}`; // Replace 'yourdomain.com' with your actual domain
+                document.cookie = `password=${password}; path=/; domain=yourdomain.com; ${expires}`; // Replace 'yourdomain.com' with your actual domain
+
+                // Redirect to msg.html
+                window.location.href = 'msg.html'; // Redirect to the desired page
+            } else {
+                document.getElementById('message').innerText = 'Invalid username or password';
+            }
+        });
+
+        // Function to create data and store it in cookies
+        window.createDomainCookie = function(key, value) {
+            const days = 30; // Number of days until expiration
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Set expiration date
+            const expires = `expires=${date.toUTCString()}`;
+            document.cookie = `${key}=${value}; path=/; domain=https://github.com/AnshumanGiri/edu.git; ${expires}`; // Replace 'yourdomain.com' with your actual domain
+            console.log(`Cookie created: ${key} = ${value}`);
+        };
+
+        // Function to retrieve cookie data and log it to the console
+        window.getDomainCookies = function() {
+            const cookies = document.cookie.split('; ').reduce((prev, current) => {
+                const [key, value] = current.split('=');
+                prev[key] = value;
+                return prev;
+            }, {});
+            console.log(cookies);
+            return cookies;
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+       
